@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan's Portfolio</title>
+  <meta name="description" content="Modern tech portfolio for Aryan" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grid-background"></div>
+  <div class="background-blur"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-inner">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skill</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="https://mail.google.com/mail/?view=cm&fs=1&to=aryanlade55@gmail.com" target="_blank" rel="noopener noreferrer">Get in Touch</a>
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="nav-divider"></div>
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skill</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta mobile" href="https://mail.google.com/mail/?view=cm&fs=1&to=aryanlade55@gmail.com" target="_blank" rel="noopener noreferrer">Get in Touch</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="blob blob-purple" style="top:5rem;right:5rem;width:8rem;height:8rem;"></div>
+      <div class="blob blob-blue" style="bottom:10rem;left:5rem;width:10rem;height:10rem;"></div>
+      <div class="blob blob-green" style="top:33%;left:25%;width:12rem;height:12rem;"></div>
+
+      <div class="hero-inner">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <h1 class="hero-title">Hello!! <br /><span class="text-gradient">I'm Aryan</span></h1>
+            <p class="hero-lead">I am passionate about Artificial Intelligence, Machine Learning, and Data Science, with a strong focus on learning, experimentation, and applying data-driven approaches to solve meaningful problems. I enjoy analyzing data, building machine learning models, and understanding how intelligent systems work.</p>
+            <p class="hero-sub">Currently, I am strengthening my foundations through hands-on projects, practical experimentation, and continuous learning.</p>
+            <div class="scroll-indicator">
+              <svg class="bounce" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              <span>Scroll to explore</span>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="glass-card image-frame">
+              <div class="image-crop">
+                <img src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/project-uploads/15baa00d-7dbd-4116-b205-975e3c3a40e8/Avtaar-2-1769327986862.png?width=8000&height=8000&resize=contain" alt="Aryan profile" />
+              </div>
+              <div class="glass-card image-badge"><span>Developer</span></div>
+            </div>
+            <div class="image-aura"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="wrap-6xl">
+        <div class="section-head center"><h2>About Me</h2></div>
+        <div class="stats-grid">
+          <div class="glass-card stat-card">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <div class="stat-num">2+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="glass-card stat-card">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div class="stat-num">4</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="glass-card stat-card">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Hackathons Participated</div>
+          </div>
+        </div>
+        <div class="glass-card about-text">
+          <p>Welcome to my portfolio! I'm <span class="hl">Aryan Lade</span>, a second-year Computer Science student with a strong interest in Artificial Intelligence, Machine Learning, and Data Science. I enjoy working with data and building intelligent solutions that address real-world problems.</p>
+          <p>My work focuses on data analysis, machine learning models, and problem-solving using data-driven approaches. Through hands-on projects and continuous learning, I am strengthening my foundations in AI and ML while exploring how intelligent systems function in practical scenarios.</p>
+          <div class="about-star">✦</div>
+          <p>I am committed to continuous growth, investing time and effort into learning, experimentation, and building impactful, real-world solutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="wrap-7xl">
+        <div class="section-head center">
+          <h2>Tech Stacks</h2>
+          <p class="section-sub">Skills and technologies I use to bring ideas to life</p>
+        </div>
+        <div class="stack-grid" id="stackGrid"></div>
+      </div>
+      <div class="ambient-center"></div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="wrap-6xl">
+        <div class="section-head center big-gap">
+          <h2 class="proj-title">My Projects</h2>
+          <p class="section-sub">Some of the projects I've worked on, showcasing my skills in web development and design.</p>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+      <div class="ambient-blob" style="width:500px;height:500px;top:25%;right:-25%;background:rgba(168,85,247,0.2);"></div>
+      <div class="ambient-blob" style="width:500px;height:500px;bottom:25%;left:-25%;background:rgba(34,211,238,0.2);"></div>
+    </section>
+
+    <!-- Contact / Footer -->
+    <footer id="contact" class="contact">
+      <div class="wrap-7xl">
+        <div class="contact-box">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <div>
+                <span class="eyebrow">Contact</span>
+                <h2 class="contact-title">Start a conversation</h2>
+                <p class="contact-lead">I help teams and founders ship fast, reliable web products. Clear scope. Clean code. No surprises.</p>
+              </div>
+              <div class="contact-icons">
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </div>
+                <div class="dashed-line"></div>
+                <div class="icon-box">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form-wrap">
+              <form id="contactForm" class="contact-form">
+                <input type="text" id="cfName" placeholder="Your name" required />
+                <input type="email" id="cfEmail" placeholder="Email address" required />
+                <textarea id="cfMsg" placeholder="Tell me about your project" rows="6" required></textarea>
+                <button type="submit">Send message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-socials">
+            <a href="https://github.com/Aryan-Lade" target="_blank" rel="noopener noreferrer" class="social">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </a>
+            <div class="dashed-line small"></div>
+            <a href="https://www.linkedin.com/in/aryan-lade" target="_blank" rel="noopener noreferrer" class="social">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+          <p class="copyright">© 2026 Aryan Lade. Build with performance in mind.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div id="cursor" class="custom-cursor"></div>
+  <script src="script.js"></script>
+</body>
+</html>
