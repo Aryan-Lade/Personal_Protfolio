@@ -6,7 +6,7 @@ import Script from "next/script";
 import CustomCursor from "@/components/ui/custom-cursor";
 
 export const metadata: Metadata = {
-  title: "Aryan Portfolio",
+  title: "Aryan's Portfolio",
   description: "Modern tech portfolio for Aryan",
 };
 

@@ -1,5 +1,5 @@
 ## Project Summary
-This project is a high-fidelity clone of the Orionyx Portfolio (https://orionyx-portfolio.vercel.app/#home). It is a modern, dark-themed developer portfolio for Aryan, featuring sections for About, Stack, Projects, and Contact. The design utilizes glassmorphism, neon gradients, and a grid background.
+This is Aryan's Portfolio — a modern, dark-themed developer portfolio featuring sections for About, Stack, Projects, and Contact. The design utilizes glassmorphism, neon gradients, and a grid background.
 
 ## Tech Stack
 - Framework: Next.js 15 (App Router)

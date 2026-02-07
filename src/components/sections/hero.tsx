@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { ArrowDown } from 'lucide-react';
 
 /**
- * Hero component for the Orionyx portfolio.
+ * Hero component for Aryan's portfolio.
  * Clones the hero section featuring a large gradient headline, descriptions,
  * a scroll indicator, and a monochromatic profile image in a glass frame.
  * Theme: Dark

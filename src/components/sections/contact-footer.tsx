@@ -1,10 +1,24 @@
+
+'use client';
+
 import { Mail, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { useState } from 'react';
 
 /**
  * ContactFooter component - Refined two-column design matching the reference image.
  * Features a "Start a conversation" section with a contact form and a minimal footer.
  */
 export default function ContactFooter() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.open(`mailto:aryanlade55@gmail.com?subject=${subject}&body=${body}`, '_blank');
+  };
   return (
     <footer id="contact" className="relative pt-32 pb-16 px-6 z-10">
       <div className="max-w-7xl mx-auto">
@@ -38,31 +52,40 @@ export default function ContactFooter() {
               </div>
 
               {/* Right Column: Form */}
-              <div className="bg-black/40 border border-white/[0.03] rounded-none p-8">
-                <form className="space-y-4">
-                  <input 
-                    type="text" 
-                    placeholder="Your name" 
-                    className="w-full bg-[#111112] border border-white/5 rounded-none px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-all text-base"
-                  />
-                  <input 
-                    type="email" 
-                    placeholder="Email address" 
-                    className="w-full bg-[#111112] border border-white/5 rounded-none px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-all text-base"
-                  />
-                    <textarea 
-                      placeholder="Tell me about your project" 
-                      rows={6}
-                      className="w-full bg-[#111112] border border-white/5 rounded-none px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-all resize-none text-base"
-                    ></textarea>
-                  <button 
-                    type="submit"
-                    className="w-full bg-white text-black font-semibold py-4 rounded-none hover:bg-white/90 transition-all active:scale-[0.98] mt-4 text-base"
-                  >
-                    Send message
-                  </button>
-                </form>
-              </div>
+                <div className="bg-black/40 border border-white/[0.03] rounded-none p-8">
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <input 
+                      type="text" 
+                      placeholder="Your name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="w-full bg-[#111112] border border-white/5 rounded-none px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-all text-base"
+                    />
+                    <input 
+                      type="email" 
+                      placeholder="Email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="w-full bg-[#111112] border border-white/5 rounded-none px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-all text-base"
+                    />
+                      <textarea 
+                        placeholder="Tell me about your project" 
+                        rows={6}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        required
+                        className="w-full bg-[#111112] border border-white/5 rounded-none px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-all resize-none text-base"
+                      ></textarea>
+                    <button 
+                      type="submit"
+                      className="w-full bg-white text-black font-semibold py-4 rounded-none hover:bg-white/90 transition-all active:scale-[0.98] mt-4 text-base"
+                    >
+                      Send message
+                    </button>
+                  </form>
+                </div>
             </div>
           </div>
 
@@ -70,12 +93,12 @@ export default function ContactFooter() {
         <div className="pt-12 border-t border-white/[0.05] flex flex-col items-center gap-6">
             {/* Footer Socials */}
             <div className="flex items-center gap-3">
-              <a href="#" className="w-10 h-10 rounded-none border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/20 transition-all">
-                <Github className="w-4 h-4" />
-              </a>
+<a href="https://github.com/Aryan-Lade" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-none border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/20 transition-all">
+                  <Github className="w-4 h-4" />
+                </a>
               <div className="w-6 border-t border-dashed border-white/20" />
-              <a href="#" className="w-10 h-10 rounded-none border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/20 transition-all">
-                <Linkedin className="w-4 h-4" />
+<a href="https://www.linkedin.com/in/aryan-lade" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-none border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/20 transition-all">
+                  <Linkedin className="w-4 h-4" />
               </a>
             </div>
             

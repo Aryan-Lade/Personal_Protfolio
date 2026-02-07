@@ -54,7 +54,7 @@ const Navbar = () => {
             {/* CTA Button */}
             <div className="hidden md:block">
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=prasidheem@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=aryanlade55@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium text-base hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 hover:scale-105 active:scale-95"
@@ -76,9 +76,12 @@ const Navbar = () => {
               )}
             </button>
           </div>
-        </div>
+      </div>
 
-      {/* Mobile Navigation Dropdown */}
+        {/* Bottom divider line */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mt-2"></div>
+
+    {/* Mobile Navigation Dropdown */}
       <div
         className={`md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-2xl border-t border-white/15 transition-all duration-300 ease-in-out overflow-hidden ${
           mobileMenuOpen ? "max-h-[400px] py-6 opacity-100" : "max-h-0 py-0 opacity-0"
@@ -96,7 +99,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=prasidheem@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=aryanlade55@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full text-center py-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium text-base mt-2"

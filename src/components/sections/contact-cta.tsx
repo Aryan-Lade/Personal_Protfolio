@@ -36,7 +36,7 @@ const ContactCTA = () => {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=prasidheem@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=aryanlade55@gmail.com"
                 className="btn-gradient px-8 py-4 rounded-full flex items-center gap-2 font-semibold text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all active:scale-95"
               >
                 Say Hello <ArrowRight className="w-4 h-4" />
