@@ -338,13 +338,6 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
 .timeline-points li { position: relative; padding-left: 1.1rem; color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.55; }
 .timeline-points li::before { content: "›"; position: absolute; left: 0; color: #c084fc; font-weight: 700; }
 
-/* Skill categories */
-.skills-cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
-.skill-cat { padding: 1.5rem; }
-.skill-cat:hover { border-color: rgba(168,85,247,0.4); transform: translateY(-3px); }
-.skill-cat h3 { font-size: 1rem; color: #fff; margin-bottom: 1rem; }
-.skill-cat .project-tags { margin-top: 0; }
-
 /* Project additions */
 .project-block { margin-bottom: 1.25rem; }
 .project-block-label { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.6rem; }
@@ -399,7 +392,6 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
   .contact-box { padding: 2rem; }
   .stats-grid-4 { grid-template-columns: repeat(2, 1fr); }
   .stats-grid-5 { grid-template-columns: repeat(2, 1fr); }
-  .skills-cats { grid-template-columns: repeat(2, 1fr); }
   .cert-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
@@ -410,7 +402,6 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
   .stats-grid-4, .stats-grid-5, .stats-grid-3 { grid-template-columns: 1fr; }
   .stack-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
-  .skills-cats { grid-template-columns: 1fr; }
   .about-text { padding: 2rem; }
   .custom-cursor { display: none; }
 }

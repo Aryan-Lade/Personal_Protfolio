@@ -24,6 +24,8 @@ const icons = {
   arrow: '<line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>'
 };
 
+const svg = (paths) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
+
 const stackItems = [
   { icon: 'code', title: 'Programming Languages', description: 'Strong foundation in Java, C++, and Python for problem-solving and application development', gradient: 'linear-gradient(to bottom right, #a855f7, #ec4899)' },
   { icon: 'globe', title: 'Web Development', description: 'Building responsive web interfaces using HTML, CSS, and JavaScript', gradient: 'linear-gradient(to bottom right, #3b82f6, #22d3ee)' },
@@ -33,8 +35,6 @@ const stackItems = [
   { icon: 'chart', title: 'Analytics & Visualization', description: 'Data visualization and insights using Power BI', gradient: 'linear-gradient(to bottom right, #eab308, #f59e0b)' },
   { icon: 'pen', title: 'Design & Presentation', description: 'Creating visuals and presentations using Canva and Microsoft PowerPoint', gradient: 'linear-gradient(to bottom right, #ec4899, #f43f5e)' }
 ];
-
-const svg = (paths) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
 
 document.getElementById('stackGrid').innerHTML = stackItems.map(item => `
   <div class="glass-card stack-card">
@@ -168,26 +168,6 @@ document.getElementById('timeline').innerHTML = experiences.map(e => `
     </ul>
     <div class="project-tags">
       ${e.tags.map(t => `<div class="project-tag"><span>${t}</span></div>`).join('')}
-    </div>
-  </div>
-`).join('');
-
-// Categorized skills
-const skillCategories = [
-  { title: 'Languages', items: ['Java', 'Python', 'C++', 'JavaScript'] },
-  { title: 'Frontend', items: ['React', 'HTML', 'CSS', 'Tailwind'] },
-  { title: 'Backend', items: ['Node.js', 'Express'] },
-  { title: 'Database', items: ['MongoDB', 'MySQL'] },
-  { title: 'Cloud', items: ['AWS', 'Azure'] },
-  { title: 'Tools', items: ['Git', 'GitHub', 'VS Code', 'Postman'] },
-  { title: 'Core', items: ['DSA', 'OOP', 'REST APIs', 'Agile'] }
-];
-
-document.getElementById('skillsCats').innerHTML = skillCategories.map(c => `
-  <div class="glass-card skill-cat">
-    <h3>${c.title}</h3>
-    <div class="project-tags">
-      ${c.items.map(i => `<div class="project-tag"><span>${i}</span></div>`).join('')}
     </div>
   </div>
 `).join('');
