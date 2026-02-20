@@ -252,3 +252,55 @@ if (window.matchMedia('(pointer: fine)').matches) {
 } else {
   cursor.style.display = 'none';
 }
+
+// Scroll reveal (Intersection Observer, staggered, once)
+(function () {
+  const STAGGER = 100; // ms between children
+
+  // Ordered child selectors per section — defines stagger sequence
+  const sectionConfig = [
+    ['#home', ['.hero-title', '.hero-lead', '.hero-roles', '.hero-actions', '.hero-badges', '.scroll-indicator', '.hero-right']],
+    ['#about', ['.section-head', '.about-chips', '.stat-card', '.about-text']],
+    ['#experience', ['.section-head', '.timeline-card']],
+    ['#skills', ['.section-head', '.stack-card']],
+    ['#projects', ['.section-head', '.project-card']],
+    ['#achievements', ['.section-head', '.stat-card']],
+    ['#certifications', ['.section-head', '.cert-card']],
+    ['#opensource', ['.section-head', '.stat-card', '.os-card']],
+    ['#education', ['.section-head', '.edu-card']],
+    ['#contact', ['.contact-info', '.contact-form-wrap', '.footer-bottom']],
+  ];
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const items = entry.target.__revealItems || [];
+      items.forEach((el, i) => {
+        el.style.setProperty('--reveal-delay', (i * STAGGER) + 'ms');
+        el.classList.add('is-visible');
+        const cleanup = () => {
+          el.classList.remove('reveal', 'reveal-btn', 'is-visible');
+          el.style.removeProperty('--reveal-delay');
+        };
+        el.addEventListener('transitionend', cleanup, { once: true });
+      });
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+  sectionConfig.forEach(([sectionSel, childSels]) => {
+    const section = document.querySelector(sectionSel);
+    if (!section) return;
+    const items = [];
+    childSels.forEach(sel => {
+      section.querySelectorAll(sel).forEach(el => {
+        if (items.includes(el)) return;
+        el.classList.add('reveal');
+        if (el.matches('.btn, button')) el.classList.add('reveal-btn');
+        items.push(el);
+      });
+    });
+    section.__revealItems = items;
+    observer.observe(section);
+  });
+})();
