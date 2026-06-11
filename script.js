@@ -21,31 +21,103 @@ const icons = {
   git: '<line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>',
   chart: '<path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="7"/><rect x="12" y="6" width="3" height="11"/><rect x="17" y="13" width="3" height="4"/>',
   pen: '<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>',
-  arrow: '<line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>'
+  arrow: '<line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>',
+  server: '<rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>',
+  cloud: '<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>',
+  layers: '<polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>',
+  terminal: '<polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/>'
 };
 
 const svg = (paths) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
 
 const stackItems = [
-  { icon: 'code', title: 'Programming Languages', description: 'Strong foundation in Java, C++, and Python for problem-solving and application development', gradient: 'linear-gradient(to bottom right, #a855f7, #ec4899)' },
-  { icon: 'globe', title: 'Web Development', description: 'Building responsive web interfaces using HTML, CSS, and JavaScript', gradient: 'linear-gradient(to bottom right, #3b82f6, #22d3ee)' },
-  { icon: 'database', title: 'Databases', description: 'Experience working with MongoDB and MySQL for structured and unstructured data', gradient: 'linear-gradient(to bottom right, #22c55e, #10b981)' },
-  { icon: 'brain', title: 'Machine Learning & AI', description: 'Interest and hands-on exposure to data science and quantitative analysis', gradient: 'linear-gradient(to bottom right, #6366f1, #a855f7)' },
-  { icon: 'git', title: 'Version Control', description: 'Code management and collaboration using Git and GitHub', gradient: 'linear-gradient(to bottom right, #f97316, #ef4444)' },
-  { icon: 'chart', title: 'Analytics & Visualization', description: 'Data visualization and insights using Power BI', gradient: 'linear-gradient(to bottom right, #eab308, #f59e0b)' },
-  { icon: 'pen', title: 'Design & Presentation', description: 'Creating visuals and presentations using Canva and Microsoft PowerPoint', gradient: 'linear-gradient(to bottom right, #ec4899, #f43f5e)' }
+  {
+    icon: 'code',
+    title: 'Programming Languages',
+    catLabel: 'Languages',
+    category: 'languages',
+    description: 'Strong foundation in object-oriented, systems, and scripting languages for problem solving and backend logic.',
+    skills: ['Java', 'Python', 'C++', 'Go', 'JavaScript', 'TypeScript'],
+    gradient: 'linear-gradient(to bottom right, #a855f7, #ec4899)'
+  },
+  {
+    icon: 'globe',
+    title: 'Frontend Development',
+    catLabel: 'Frontend',
+    category: 'frontend',
+    description: 'Building modern, performant, and reactive single-page applications with intuitive user experiences.',
+    skills: ['ReactJS', 'AngularJS', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind'],
+    gradient: 'linear-gradient(to bottom right, #3b82f6, #22d3ee)'
+  },
+  {
+    icon: 'server',
+    title: 'Backend & APIs',
+    catLabel: 'Backend',
+    category: 'backend',
+    description: 'Designing robust RESTful microservices, event-driven backends, and secure authentication flows.',
+    skills: ['Node.js', 'Express.js', 'Flask', 'REST APIs', 'Microservices', 'JWT & OAuth'],
+    gradient: 'linear-gradient(to bottom right, #8b5cf6, #3b82f6)'
+  },
+  {
+    icon: 'database',
+    title: 'Databases & ORM',
+    catLabel: 'Database',
+    category: 'database-cloud',
+    description: 'Structured and unstructured data modeling, schema design, connection pooling, and ORM abstractions.',
+    skills: ['MongoDB', 'MySQL', 'Oracle Database', 'Sequelize ORM', 'Firebase'],
+    gradient: 'linear-gradient(to bottom right, #22c55e, #10b981)'
+  },
+  {
+    icon: 'cloud',
+    title: 'Cloud & DevOps',
+    catLabel: 'DevOps',
+    category: 'database-cloud',
+    description: 'Containerizing services, deploying production environments, and managing collaborative Git workflows.',
+    skills: ['Docker', 'AWS', 'Azure', 'Git / GitHub', 'CI/CD Pipelines'],
+    gradient: 'linear-gradient(to bottom right, #0ea5e9, #6366f1)'
+  },
+  {
+    icon: 'brain',
+    title: 'Machine Learning & AI',
+    catLabel: 'AI / ML',
+    category: 'aiml',
+    description: 'Hands-on predictive modeling, data processing pipelines, and AI-assisted engineering workflows.',
+    skills: ['Machine Learning', 'Pandas', 'NumPy', 'Matplotlib', 'Predictive Modeling'],
+    gradient: 'linear-gradient(to bottom right, #ec4899, #f43f5e)'
+  },
+  {
+    icon: 'layers',
+    title: 'System Design & Core CS',
+    catLabel: 'Core CS',
+    category: 'core',
+    description: 'Deep understanding of algorithmic complexity, OOP principles, scalable distributed systems, and testability.',
+    skills: ['DSA (500+ LeetCode)', 'System Design', 'OOP', 'Scalability', 'Unit Testing'],
+    gradient: 'linear-gradient(to bottom right, #f97316, #ef4444)'
+  },
+  {
+    icon: 'terminal',
+    title: 'Developer Tools & Analytics',
+    catLabel: 'Tools',
+    category: 'core',
+    description: 'Modern developer toolchain for rigorous API testing, metrics inspection, and collaborative delivery.',
+    skills: ['Postman', 'Linux / Bash', 'Agile / Scrum', 'Power BI', 'Canva'],
+    gradient: 'linear-gradient(to bottom right, #eab308, #f59e0b)'
+  }
 ];
 
 document.getElementById('stackGrid').innerHTML = stackItems.map(item => `
-  <div class="glass-card stack-card">
+  <div class="glass-card stack-card" data-category="${item.category}">
     <div class="stack-hover" style="background:${item.gradient};"></div>
     <div class="stack-content">
       <div class="stack-top">
         <div class="stack-icon-box" style="background:${item.gradient};">${svg(icons[item.icon])}</div>
-        <span class="stack-arrow">${svg(icons.arrow)}</span>
+        <span class="stack-badge-cat">${item.catLabel}</span>
       </div>
       <h3>${item.title}</h3>
       <p>${item.description}</p>
+      <div class="stack-tags">
+        ${item.skills.map(s => `<span class="stack-tag">${s}</span>`).join('')}
+      </div>
     </div>
   </div>
 `).join('');
