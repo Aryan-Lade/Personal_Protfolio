@@ -195,18 +195,48 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
 
 /* Skills */
 .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.stack-card { padding: 1.5rem; position: relative; overflow: hidden; cursor: pointer; }
-.stack-card:hover { transform: translateY(-4px); }
+.stack-card { padding: 1.5rem; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.3s, border-color 0.3s, opacity 0.3s; }
+.stack-card:hover { transform: translateY(-4px); border-color: rgba(168, 85, 247, 0.4); }
 .stack-hover { position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s; }
 .stack-card:hover .stack-hover { opacity: 0.1; }
-.stack-content { position: relative; z-index: 10; }
+.stack-content { position: relative; z-index: 10; display: flex; flex-direction: column; height: 100%; }
 .stack-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
 .stack-icon-box { padding: 0.75rem; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; }
 .stack-icon-box svg { width: 1.5rem; height: 1.5rem; color: #fff; }
-.stack-arrow { width: 1.25rem; height: 1.25rem; color: rgba(255,255,255,0.4); opacity: 0; transition: all 0.3s; }
-.stack-card:hover .stack-arrow { opacity: 1; transform: translate(4px, -4px); }
+.stack-badge-cat {
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
 .stack-card h3 { font-size: 1.125rem; color: #fff; margin-bottom: 0.5rem; }
-.stack-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.6; }
+.stack-card p { color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+.stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+.stack-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.75);
+  transition: all 0.2s;
+}
+.stack-card:hover .stack-tag {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
 .ambient-center {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   width: 600px; height: 600px; background: rgba(168,85,247,0.05);
