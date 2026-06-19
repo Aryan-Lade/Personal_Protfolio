@@ -194,6 +194,37 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
 .about-star { color: #c084fc; font-size: 1.5rem; margin: 0.5rem 0 1.5rem; }
 
 /* Skills */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.75rem;
+}
+.filter-pill {
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+}
+.filter-pill:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.filter-pill.active {
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.35);
+}
+
 .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .stack-card { padding: 1.5rem; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.3s, border-color 0.3s, opacity 0.3s; }
 .stack-card:hover { transform: translateY(-4px); border-color: rgba(168, 85, 247, 0.4); }

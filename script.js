@@ -310,6 +310,23 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   window.open(`mailto:aryanlade55@gmail.com?subject=${subject}&body=${body}`, '_blank');
 });
 
+
+// Tech Stack Category Filter
+const stackFilterBar = document.getElementById('stackFilterBar');
+if (stackFilterBar) {
+  stackFilterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-pill');
+    if (!btn) return;
+    stackFilterBar.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.stack-card').forEach(card => {
+      const match = filter === 'all' || card.dataset.category === filter;
+      card.style.display = match ? '' : 'none';
+    });
+  });
+}
+
 // Custom cursor
 const cursor = document.getElementById('cursor');
 if (window.matchMedia('(pointer: fine)').matches) {
@@ -334,7 +351,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
     ['#home', ['.hero-title', '.hero-lead', '.hero-roles', '.hero-actions', '.hero-badges', '.scroll-indicator', '.hero-right']],
     ['#about', ['.section-head', '.about-chips', '.stat-card', '.about-text']],
     ['#experience', ['.section-head', '.timeline-card']],
-    ['#skills', ['.section-head', '.stack-card']],
+    ['#skills', ['.section-head', '.filter-bar', '.stack-card']],
     ['#projects', ['.section-head', '.project-card']],
     ['#achievements', ['.section-head', '.stat-card']],
     ['#certifications', ['.section-head', '.cert-card']],
