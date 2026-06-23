@@ -124,9 +124,30 @@ document.getElementById('stackGrid').innerHTML = stackItems.map(item => `
 
 const projects = [
   {
-    id: '01 / 02',
+    id: '01 / 04',
+    title: 'DealMind',
+    subtitle: 'AI Negotiation Strategist & Simulator',
+    category: 'AI Agent & Web App',
+    categories: ['ai', 'fullstack'],
+    description: 'An AI-driven negotiation simulator where users roleplay against adaptive AI counterparties with live tactical coaching, anchor recommendations, game-theory BATNA calculation, and real-time concession tracking.',
+    features: [
+      'Adaptive AI counterparties powered by Google Gemini with custom personas',
+      'Game-theory BATNA engine with real-time concession analytics',
+      'Live tactical coaching and dynamic anchor recommendations during negotiation',
+      'Built during Google Code for Community Hackathon with React 19 & TypeScript'
+    ],
+    challenge: 'Maintaining multi-turn context and realistic bargaining psychology without letting the LLM hallucinate concessions or break persona.',
+    tags: ['React 19', 'TypeScript', 'Google Gemini', 'PostgreSQL', 'Vite', 'Tailwind'],
+    github: 'https://github.com/Aryan-Lade/DealMind',
+    demo: 'https://dealmind-hazel.vercel.app/',
+    gradient: 'linear-gradient(to bottom right, rgba(168,85,247,0.35), rgba(236,72,153,0.35))'
+  },
+  {
+    id: '02 / 04',
     title: 'Movie Ticket Booking',
+    subtitle: 'Cinema Seat Reservation System',
     category: 'Web App',
+    categories: ['webapp'],
     description: 'A responsive Movie Ticket Booking System that lets users browse movies, pick seats, and confirm bookings through a clean, intuitive interface.',
     features: ['Interactive seat selection', 'Movie browsing & showtimes', 'Booking summary & confirmation', 'Fully responsive layout'],
     challenge: 'Managing seat-state and preventing double-booking purely on the client side with clean, readable logic.',
@@ -136,9 +157,11 @@ const projects = [
     gradient: 'linear-gradient(to bottom right, rgba(37,99,235,0.3), rgba(8,145,178,0.3))'
   },
   {
-    id: '02 / 02',
+    id: '03 / 04',
     title: 'Calculator',
+    subtitle: 'Arithmetic Expression Evaluator',
     category: 'Web App',
+    categories: ['webapp'],
     description: 'A functional Calculator with a user-friendly layout and efficient calculation logic, supporting everyday arithmetic operations.',
     features: ['Real-time expression evaluation', 'Keyboard-friendly input', 'Clear & delete controls', 'Minimal, accessible UI'],
     challenge: 'Handling operator precedence and edge cases (division by zero, chained operations) reliably.',
@@ -153,7 +176,7 @@ const githubIcon = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" 
 const linkIcon = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
 
 document.getElementById('projectsGrid').innerHTML = projects.map(p => `
-  <div class="project-card">
+  <div class="project-card" data-pcategory="${(p.categories || []).join(' ')}">
     <div class="glass-card project-inner">
       <div class="project-glow" style="background:${p.gradient};"></div>
       <div class="project-body">
@@ -161,6 +184,7 @@ document.getElementById('projectsGrid').innerHTML = projects.map(p => `
           <span class="project-id">${p.id}</span>
           <span class="project-cat">${p.category}</span>
         </div>
+        <div class="project-subtitle">${p.subtitle || ''}</div>
         <h3>${p.title}</h3>
         <p class="project-desc">${p.description}</p>
         <div class="project-block">
@@ -175,7 +199,7 @@ document.getElementById('projectsGrid').innerHTML = projects.map(p => `
         </div>
         <div class="project-links">
           <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">${githubIcon} GitHub</a>
-          ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">${linkIcon} Live Demo</a>` : ''}
+          ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">${linkIcon} Live Demo</a>` : ''}
         </div>
         <div class="project-tags">
           ${p.tags.map(t => `<div class="project-tag"><span>${t}</span></div>`).join('')}
