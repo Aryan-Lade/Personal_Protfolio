@@ -144,6 +144,25 @@ const projects = [
   },
   {
     id: '02 / 04',
+    title: 'DocZen',
+    subtitle: 'Full-Stack Document Management Platform',
+    category: 'Enterprise Full Stack',
+    categories: ['fullstack'],
+    description: 'A comprehensive document manipulation suite offering 25+ processing tools (merge, convert, compress, OCR, protect) containerized with Docker and backed by Java and MySQL.',
+    features: [
+      'Modular REST API architecture with 25+ document manipulation tools and per-tool controllers',
+      'JWT authentication, bcrypt password hashing, rate limiting, and role-based access control (RBAC)',
+      'Dynamic frontend tool registry automatically rendering new Java backend tools',
+      'Containerized deployment using Docker multi-stage builds with LibreOffice and Ghostscript'
+    ],
+    challenge: 'Containerizing heavy LibreOffice/Ghostscript headless workers efficiently while enforcing per-user storage quotas and concurrency limits.',
+    tags: ['Java', 'React', 'TypeScript', 'Node.js', 'Express', 'MySQL', 'Docker'],
+    github: 'https://github.com/Aryan-Lade/DocZen',
+    demo: '',
+    gradient: 'linear-gradient(to bottom right, rgba(37,99,235,0.35), rgba(8,145,178,0.35))'
+  },
+  {
+    id: '03 / 04',
     title: 'Movie Ticket Booking',
     subtitle: 'Cinema Seat Reservation System',
     category: 'Web App',
@@ -157,7 +176,7 @@ const projects = [
     gradient: 'linear-gradient(to bottom right, rgba(37,99,235,0.3), rgba(8,145,178,0.3))'
   },
   {
-    id: '03 / 04',
+    id: '04 / 04',
     title: 'Calculator',
     subtitle: 'Arithmetic Expression Evaluator',
     category: 'Web App',
