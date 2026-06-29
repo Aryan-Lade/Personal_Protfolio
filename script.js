@@ -163,31 +163,41 @@ const projects = [
   },
   {
     id: '03 / 04',
-    title: 'Movie Ticket Booking',
-    subtitle: 'Cinema Seat Reservation System',
-    category: 'Web App',
-    categories: ['webapp'],
-    description: 'A responsive Movie Ticket Booking System that lets users browse movies, pick seats, and confirm bookings through a clean, intuitive interface.',
-    features: ['Interactive seat selection', 'Movie browsing & showtimes', 'Booking summary & confirmation', 'Fully responsive layout'],
-    challenge: 'Managing seat-state and preventing double-booking purely on the client side with clean, readable logic.',
-    tags: ['HTML', 'CSS', 'Javascript'],
-    github: 'https://github.com/Aryan-Lade',
+    title: 'Niveshak (निवेशक)',
+    subtitle: 'Multimodal Stock Intelligence Engine',
+    category: 'Quant Finance & AI',
+    categories: ['ai'],
+    description: 'A research-grade automated trading engine combining leakage-free machine learning, market regime detection, grounded financial news RAG, and institutional risk modeling for Indian Equities (NSE).',
+    features: [
+      'Zero-lookahead guarantee with purged walk-forward validation and embargo mechanisms',
+      'Grounded financial news RAG using FinBERT, local Ollama embeddings, and ChromaDB vector store',
+      'Realistic statutory transaction cost modeling for NSE / Indian brokerage structures',
+      'Autonomous signal generation, backtesting pipeline, and MLflow experiment tracking'
+    ],
+    challenge: 'Eliminating subtle temporal lookahead bias and data leakage in financial time series while integrating multimodal unstructured news sentiment.',
+    tags: ['Python', 'Machine Learning', 'RAG', 'ChromaDB', 'FinBERT', 'NSE India', 'MLflow'],
+    github: 'https://github.com/Aryan-Lade/Niveshak',
     demo: '',
-    gradient: 'linear-gradient(to bottom right, rgba(37,99,235,0.3), rgba(8,145,178,0.3))'
+    gradient: 'linear-gradient(to bottom right, rgba(34,197,94,0.35), rgba(16,185,129,0.35))'
   },
   {
     id: '04 / 04',
-    title: 'Calculator',
-    subtitle: 'Arithmetic Expression Evaluator',
-    category: 'Web App',
-    categories: ['webapp'],
-    description: 'A functional Calculator with a user-friendly layout and efficient calculation logic, supporting everyday arithmetic operations.',
-    features: ['Real-time expression evaluation', 'Keyboard-friendly input', 'Clear & delete controls', 'Minimal, accessible UI'],
-    challenge: 'Handling operator precedence and edge cases (division by zero, chained operations) reliably.',
-    tags: ['HTML', 'CSS', 'Javascript'],
-    github: 'https://github.com/Aryan-Lade',
+    title: 'SmartAllocate',
+    subtitle: 'AI-Powered Volunteer Matching Platform',
+    category: 'Full Stack & AI',
+    categories: ['ai', 'fullstack'],
+    description: 'An AI-powered allocation platform designed to solve inefficient volunteer-task distribution in NGOs by intelligently matching volunteers based on skills, availability, and location with 95% accuracy.',
+    features: [
+      'Weighted ML scoring combining Jaccard similarity, schedule overlap, and Haversine distance',
+      'Dual REST API microservices architecture across Node.js/Express and Python/Flask',
+      'NGO dashboard with real-time impact analytics and automated in-app notifications',
+      'Google OAuth authentication via Firebase and session protection'
+    ],
+    challenge: 'Minimizing cross-service latency between Node.js and Python microservices while performing real-time multi-variable scoring.',
+    tags: ['React', 'Node.js', 'Python', 'Flask', 'MongoDB', 'Firebase', 'REST APIs'],
+    github: 'https://github.com/Aryan-Lade/SmartAllocate',
     demo: '',
-    gradient: 'linear-gradient(to bottom right, rgba(147,51,234,0.3), rgba(219,39,119,0.3))'
+    gradient: 'linear-gradient(to bottom right, rgba(234,179,8,0.35), rgba(249,115,22,0.35))'
   }
 ];
 
@@ -370,6 +380,24 @@ if (stackFilterBar) {
   });
 }
 
+
+// Project Category Filter
+const projectFilterBar = document.getElementById('projectFilterBar');
+if (projectFilterBar) {
+  projectFilterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-pill');
+    if (!btn) return;
+    projectFilterBar.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.pfilter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      const cats = (card.dataset.pcategory || '').split(' ');
+      const match = filter === 'all' || cats.includes(filter);
+      card.style.display = match ? '' : 'none';
+    });
+  });
+}
+
 // Custom cursor
 const cursor = document.getElementById('cursor');
 if (window.matchMedia('(pointer: fine)').matches) {
@@ -395,7 +423,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
     ['#about', ['.section-head', '.about-chips', '.stat-card', '.about-text']],
     ['#experience', ['.section-head', '.timeline-card']],
     ['#skills', ['.section-head', '.filter-bar', '.stack-card']],
-    ['#projects', ['.section-head', '.project-card']],
+    ['#projects', ['.section-head', '.filter-bar', '.project-card']],
     ['#achievements', ['.section-head', '.stat-card']],
     ['#certifications', ['.section-head', '.cert-card']],
     ['#opensource', ['.section-head', '.stat-card', '.os-card']],
