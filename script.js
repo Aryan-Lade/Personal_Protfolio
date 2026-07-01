@@ -241,16 +241,15 @@ document.getElementById('projectsGrid').innerHTML = projects.map(p => `
 // Experience timeline
 const experiences = [
   {
-    role: 'Tech Team Member',
-    org: "Blockchain RBU Students' Chapter",
-    period: 'Oct 2025 – Present',
+    role: 'Software Engineering Intern (AI-Focused)',
+    org: 'iLoma Technology Pvt. Ltd.',
+    period: 'Oct 2026 – Present',
     points: [
-      'Develop technical solutions for chapter initiatives',
-      'Collaborate on blockchain-related projects',
-      'Improve and maintain web applications',
-      'Participate in technical events and workshops'
+      'Contributed to assigned projects focusing on AI-driven development and AI-assisted coding workflows',
+      'Reviewed, tested, and validated AI-generated code before submission following company repository guidelines',
+      'Delivered daily engineering progress reports covering work completed, blockers, and next-day plans alongside university coursework'
     ],
-    tags: ['Blockchain', 'Web', 'Collaboration']
+    tags: ['AI-Driven Dev', 'Code Review', 'Python', 'Testing', 'Git Workflows']
   },
   {
     role: 'Open Source Contributor',
@@ -265,16 +264,16 @@ const experiences = [
     tags: ['Git', 'GitHub', 'Open Source']
   },
   {
-    role: 'AI/ML Intern',
-    org: 'Cognifyz Technologies',
-    period: 'Internship',
+    role: 'Tech Team Member',
+    org: "Blockchain RBU Students' Chapter",
+    period: 'Oct 2025 – Present',
     points: [
-      'Worked on machine learning tasks and data analysis',
-      'Used Python with Pandas and NumPy for data processing',
-      'Built visualizations with Matplotlib',
-      'Explored model building and evaluation'
+      'Develop technical solutions for chapter initiatives',
+      'Collaborate on blockchain-related projects',
+      'Improve and maintain web applications',
+      'Participate in technical events and workshops'
     ],
-    tags: ['Python', 'Pandas', 'NumPy', 'Matplotlib']
+    tags: ['Blockchain', 'Web', 'Collaboration']
   }
 ];
 
@@ -299,11 +298,10 @@ document.getElementById('timeline').innerHTML = experiences.map(e => `
 
 // Achievements
 const achievements = [
-  { icon: 'code', num: '350+', label: 'LeetCode Problems Solved' },
+  { icon: 'code', num: '500+', label: 'LeetCode Problems Solved' },
   { icon: 'trophy', num: '10+', label: 'Hackathons Participated' },
   { icon: 'branch', num: 'GSSoC', label: '2026 Contributor' },
-  { icon: 'blocks', num: 'Blockchain', label: 'Club Member' },
-  { icon: 'brain', num: 'AI/ML', label: 'Internship Experience' }
+  { icon: 'blocks', num: 'Blockchain', label: 'Club Member' }
 ];
 const achIcons = {
   code: icons.code,
