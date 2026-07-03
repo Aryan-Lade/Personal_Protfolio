@@ -358,6 +358,7 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
   const message = document.getElementById('cfMsg').value;
   const subject = encodeURIComponent(`Message from ${name}`);
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+  showToast('✉️ Opening email client...');
   window.open(`mailto:aryanlade55@gmail.com?subject=${subject}&body=${body}`, '_blank');
 });
 
@@ -393,6 +394,52 @@ if (projectFilterBar) {
       const match = filter === 'all' || cats.includes(filter);
       card.style.display = match ? '' : 'none';
     });
+  });
+}
+
+
+// Interactive Toast Notification
+function showToast(msg, duration = 2800) {
+  const toast = document.getElementById('glassToast');
+  const msgEl = document.getElementById('toastMsg');
+  if (!toast || !msgEl) return;
+  msgEl.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toast.__timer);
+  toast.__timer = setTimeout(() => {
+    toast.classList.remove('show');
+  }, duration);
+}
+
+// Download Resume Feedback
+document.querySelectorAll('a[download]').forEach(el => {
+  el.addEventListener('click', () => {
+    showToast('📄 Downloading Aryan-Lade_Resume.pdf...');
+  });
+});
+
+// Quick Copy Email
+const quickCopyEmailBtn = document.getElementById('quickCopyEmailBtn');
+if (quickCopyEmailBtn) {
+  quickCopyEmailBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText('aryanlade55@gmail.com').then(() => {
+      showToast('✓ Email copied: aryanlade55@gmail.com');
+    }).catch(() => {
+      showToast('aryanlade55@gmail.com');
+    });
+  });
+}
+
+// Scroll To Top
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  if (scrollTopBtn) {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  }
+});
+if (scrollTopBtn) {
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
