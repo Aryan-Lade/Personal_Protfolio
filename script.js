@@ -205,7 +205,7 @@ const githubIcon = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" 
 const linkIcon = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
 
 document.getElementById('projectsGrid').innerHTML = projects.map(p => `
-  <div class="project-card" data-pcategory="${(p.categories || []).join(' ')}">
+  <div class="project-card" data-pcategory="${p.categories.join(' ')}">
     <div class="glass-card project-inner">
       <div class="project-glow" style="background:${p.gradient};"></div>
       <div class="project-body">
@@ -213,7 +213,7 @@ document.getElementById('projectsGrid').innerHTML = projects.map(p => `
           <span class="project-id">${p.id}</span>
           <span class="project-cat">${p.category}</span>
         </div>
-        <div class="project-subtitle">${p.subtitle || ''}</div>
+        <div class="project-subtitle">${p.subtitle}</div>
         <h3>${p.title}</h3>
         <p class="project-desc">${p.description}</p>
         <div class="project-block">
@@ -350,54 +350,6 @@ document.getElementById('osStats').innerHTML = osStats.map(s => `
   </div>
 `).join('');
 
-// Contact form -> mailto
-document.getElementById('contactForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const name = document.getElementById('cfName').value;
-  const email = document.getElementById('cfEmail').value;
-  const message = document.getElementById('cfMsg').value;
-  const subject = encodeURIComponent(`Message from ${name}`);
-  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-  showToast('✉️ Opening email client...');
-  window.open(`mailto:aryanlade55@gmail.com?subject=${subject}&body=${body}`, '_blank');
-});
-
-
-// Tech Stack Category Filter
-const stackFilterBar = document.getElementById('stackFilterBar');
-if (stackFilterBar) {
-  stackFilterBar.addEventListener('click', (e) => {
-    const btn = e.target.closest('.filter-pill');
-    if (!btn) return;
-    stackFilterBar.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.stack-card').forEach(card => {
-      const match = filter === 'all' || card.dataset.category === filter;
-      card.style.display = match ? '' : 'none';
-    });
-  });
-}
-
-
-// Project Category Filter
-const projectFilterBar = document.getElementById('projectFilterBar');
-if (projectFilterBar) {
-  projectFilterBar.addEventListener('click', (e) => {
-    const btn = e.target.closest('.filter-pill');
-    if (!btn) return;
-    projectFilterBar.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.pfilter;
-    document.querySelectorAll('.project-card').forEach(card => {
-      const cats = (card.dataset.pcategory || '').split(' ');
-      const match = filter === 'all' || cats.includes(filter);
-      card.style.display = match ? '' : 'none';
-    });
-  });
-}
-
-
 // Interactive Toast Notification
 function showToast(msg, duration = 2800) {
   const toast = document.getElementById('glassToast');
@@ -430,6 +382,39 @@ if (quickCopyEmailBtn) {
   });
 }
 
+// Tech Stack Category Filter
+const stackFilterBar = document.getElementById('stackFilterBar');
+if (stackFilterBar) {
+  stackFilterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-pill');
+    if (!btn) return;
+    stackFilterBar.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.stack-card').forEach(card => {
+      const match = filter === 'all' || card.dataset.category === filter;
+      card.style.display = match ? '' : 'none';
+    });
+  });
+}
+
+// Project Category Filter
+const projectFilterBar = document.getElementById('projectFilterBar');
+if (projectFilterBar) {
+  projectFilterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-pill');
+    if (!btn) return;
+    projectFilterBar.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.pfilter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      const cats = (card.dataset.pcategory || '').split(' ');
+      const match = filter === 'all' || cats.includes(filter);
+      card.style.display = match ? '' : 'none';
+    });
+  });
+}
+
 // Scroll To Top
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 window.addEventListener('scroll', () => {
@@ -442,6 +427,18 @@ if (scrollTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+// Contact form -> mailto with feedback
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('cfName').value;
+  const email = document.getElementById('cfEmail').value;
+  const message = document.getElementById('cfMsg').value;
+  const subject = encodeURIComponent(`Message from ${name}`);
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+  showToast('✉️ Opening email client...');
+  window.open(`mailto:aryanlade55@gmail.com?subject=${subject}&body=${body}`, '_blank');
+});
 
 // Custom cursor
 const cursor = document.getElementById('cursor');
