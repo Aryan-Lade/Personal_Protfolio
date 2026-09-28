@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio website built with plain HTML, CSS, and JavaScript. It showcases Aryan Lade — a B.Tech CSE student and software developer working across Full Stack Development, Blockchain, and AI/ML.
 
-🔗 **Live:** https://aryan-lade.github.io/Personal_Protfolio/
+🔗 **Live:** aryanlade.in
 
 ## Features
 
